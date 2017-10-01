@@ -52,7 +52,7 @@ public class TileMap {
 		this.tileSize = tileSize;
 		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
 		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
-		tween = 0.07;
+		tween = 1;
 	}
 	
 	public void loadTiles(String s) {
@@ -142,7 +142,7 @@ public class TileMap {
 	}
 	public boolean isShaking() { return shaking; }
 	
-	public void setTween(double d) { tween = d; }
+	public void setTween(double d) { /*tween = d;*/ }
 	public void setShaking(boolean b, int i) { shaking = b; intensity = i; }
 	public void setBounds(int i1, int i2, int i3, int i4) {
 		xmin = GamePanel.WIDTH - i1;
@@ -151,6 +151,7 @@ public class TileMap {
 		ymax = i4;
 	}
 	
+	// this method sets the rate that the screen is updated, changed primarily through the value of tween
 	public void setPosition(double x, double y) {
 		
 		this.x += (x - this.x) * tween;
